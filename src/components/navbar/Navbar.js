@@ -9,16 +9,20 @@ const Navbar = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
     return (
-        <div className="navBarDiv d-flex justify-content-between p-3 bg-dark">
-            <div className="navLogo">
-                <h3>IIT - JU</h3>               
-            </div>
-            <div className="d-flex flex-row bd-highlight mb-3 navItems">
-                <Link to="/home"><button className="loginBtn btn btn-info">Home</button></Link>
-                <Link to="/course"><button className="loginBtn btn btn-info">COURSE</button></Link>
-                <Link to="/faculty"><button className="loginBtn btn btn-info">FACULTY</button></Link>
-                { loggedInUser.email ? <button className="loginBtn btn btn-info">{loggedInUser.name}</button> : <Link to="/login"><button className="loginBtn btn btn-warning">LOG-IN</button></Link> }
-            </div>    
+        <div>
+            {/* <div className="navbar">
+                        <div className="container">
+                            <h3>Welcome to IIT-JU!</h3>
+                            <span className="d-flex">
+                                <ul className="nav_links">
+                                    <li><a href="#">Courses</a></li>
+                                    <li><a href="#">Faculty</a></li>
+                                    <li><a href="#">Notices</a></li>
+                                </ul>
+                                <a className="login" href="#"><button className="button1">Login</button></a>
+                            </span>
+                        </div>
+                    </div>     */}
         </div>
     );
 };

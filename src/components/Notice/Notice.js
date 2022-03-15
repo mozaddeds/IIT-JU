@@ -15,8 +15,8 @@ const Notice = () => {
         <div>
             <h1>This is Notice Board</h1>
             <div className="noticeInfo">
-                <h1>{noticeID.title}</h1>
-                <p>{noticeID.body}</p>    
+                <h1>{noticeID.noticeData.title}</h1>
+                <p>{noticeID.noticeData.description}</p>    
             </div>
         </div>
     );

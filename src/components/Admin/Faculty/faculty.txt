@@ -1,0 +1,47 @@
+import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { TeacherContext } from '../../../App';
+import Navbar from '../../navbar/Navbar';
+
+const FacultyMember = () => {
+
+    const [teacherInfo, setTeacherInfo] = useContext(TeacherContext);
+    const [noticeID, setNoticeID] = useContext(NoticeContext);
+
+
+
+    useEffect(() => {
+        fetch('http://localhost:4000/teachers')
+            .then((response) => response.json())
+            .then((data) => setTeacher(data))
+
+    })
+
+    const showTeacherInfo = id => {
+        setTeacherInfo(id);
+
+
+    return (
+        <div>
+            <Navbar />
+            <div className="noticeSection">
+                {
+                    teacher.map(post =>
+                        <Link to={`/teachers/${post._id}`}><div className='noticeCard' key={post._id} onClick={() => showNoticeInfo(post)}>
+                            <div className="card text-white bg-primary mb-3">
+                                <div className="card-header">Header</div>
+                                <div className="card-body">
+                                    <h5 className="card-title">{post.noticeData.title}</h5>
+                                    <p className="card-text">{post.noticeData.description}</p>
+                                </div>
+                            </div>
+                        </div>
+                        </Link>
+                    )
+                }
+            </div>
+        </div>
+    );
+};
+
+export default FacultyMember;

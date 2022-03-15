@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import './EditNotice.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useHistory, useLocation } from 'react-router';
 
 const EditNotice = () => {
 
     const [notice, setNotice] = useState({})
+
+    const history = useHistory();
 
     const handleBlur = (e) => {
         const newNotice = { ...notice };
@@ -20,16 +23,15 @@ const EditNotice = () => {
                 description: notice.description
             }
 
-            console.log(noticeData);
-
-        fetch('https://localhost:4000/addnotice', {
+        fetch('http://localhost:4000/addnotice', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({noticeData})
         })
             .then(res => res.json())
 
-        e.preventDefault();
+            history.push("/home");
+        
     }
 
 
